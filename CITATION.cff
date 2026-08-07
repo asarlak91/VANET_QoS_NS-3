@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use these simulation components, please cite the associated paper."
+title: "IQDN VANET Simulation Components (NS-3.26)"
+type: software
+authors:
+  - family-names: Sarlak
+    given-names: Ahmad
+version: 1.0.0
+date-released: 2026-08-07
+repository-code: "https://github.com/asarlak91/iqdn-vanet-ns3"
+keywords:
+  - NS-3
+  - VANET
+  - LTE
+  - IEEE 802.11p
+  - vehicular networks
+  - delay-tolerant networking
+  - C++
+preferred-citation:
+  type: article
+  title: "An Approach to Improve the Quality of Service in DTN and Non-DTN based VANET"
+  authors:
+    - family-names: Sarlak
+      given-names: Ahmad
+    - family-names: Darmani
+      given-names: Yousef
+  journal: "Journal of Information Systems and Telecommunication"
+  volume: 8
+  issue: 4
+  start: 263
+  end: 271
+  year: 2020

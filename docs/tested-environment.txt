@@ -1,0 +1,47 @@
+Tested environment
+==================
+
+NS-3 version: 3.26
+Operating system: Ubuntu 24.04.1 LTS
+Python used by Waf: Python 3.10.20
+C++ compiler: g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Test date: 2026-08-07
+
+Configuration used
+------------------
+CXXFLAGS="-Wall" python ./waf configure --disable-python --enable-examples --enable-tests
+
+Build command
+-------------
+python ./waf build
+
+Simulation run commands
+-----------------------
+python ./waf --run scratch/lte-did-component
+python ./waf --run scratch/ieee80211p-dtd-component
+
+Compatibility notes for NS-3.26 on a modern system
+--------------------------------------------------
+1. NS-3.26 uses the older Waf build system.
+2. Python 3.12 cannot run this bundled Waf because the deprecated "imp" module was removed.
+3. Python 3.11 also fails on the old "rUb" file mode used by this Waf release.
+4. Python 3.10.20 was used successfully.
+5. With modern Python, the bundled Waf may fail with:
+     RuntimeError: generator raised StopIteration
+   The tested workaround was to back up waflib/Node.py and replace the legacy
+   "raise StopIteration" statement inside the generator with "return", preserving
+   the original indentation.
+6. GCC 13 produced warnings in legacy NS-3.26 source code. The tested build used
+   CXXFLAGS="-Wall" to avoid treating those legacy warnings as fatal errors.
+7. The LTE component uses 80 UEs attached to the serving eNodeB, so the cleaned
+   source sets ns3::LteEnbRrc::SrsPeriodicity to 160 to support the UE count.
+
+Validation status
+-----------------
+LTE DID component: compiled and ran successfully.
+IEEE 802.11p DTD component: compiled and ran successfully.
+
+Saved outputs
+-------------
+../results/lte-sample-output.txt
+../results/wifi-sample-output.txt
