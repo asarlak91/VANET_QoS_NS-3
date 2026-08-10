@@ -3,6 +3,7 @@
 C++/NS-3 simulation components associated with the paper:
 
 **“An Approach to Improve the Quality of Service in DTN and Non-DTN based VANET.”**
+https://jist.ir/en/Article/15660
 
 This repository contains cleaned and revalidated versions of two simulation components originally developed for the study:
 
